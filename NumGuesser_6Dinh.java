@@ -9,6 +9,7 @@ public class NumGuesser_6Dinh {
         NumberGuesser guesser = new NumberGuesser(maxNum);
         int numGuesses = guesser.play();
         System.out.println("You guessed it in " + numGuesses + " tries!");
+        max.close();
     }
 }
 

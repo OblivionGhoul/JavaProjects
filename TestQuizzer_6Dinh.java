@@ -105,6 +105,8 @@ class CsQuiz {
     if (likeTeacher.equals("d")) {
       testScore++;
     }
+
+    input.close();
   }
 
   // displays the final results

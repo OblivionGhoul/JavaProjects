@@ -26,7 +26,7 @@ class MovieDatabaseTester_6Dinh {
  * Uses age to calculate which movies are best
  */
 class Movie {
-  String[] movies = new String[10xz];
+  String[] movies = new String[10];
   int[] movieLength = new int[10];
   double[] movieRating = new double[10];
   String[] rMovies = {"American Sniper", "Robocop", "Joker", "Aliens", "1917"};

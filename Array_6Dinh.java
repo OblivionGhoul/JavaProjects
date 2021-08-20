@@ -9,7 +9,7 @@ public class Array_6Dinh {
 }
 
 class ArrayTester_6Dinh {
-    public static void testNums(  int[] nums ) {
+    public void testNums(  int[] nums ) {
         System.out.println("2nd Element: " + nums[1]);
         System.out.println("Last Element: " + nums[nums.length-1]);
         int largest = 0;
@@ -19,7 +19,7 @@ class ArrayTester_6Dinh {
         System.out.println("Largest Element: " + largest + "\n");
     }
 
-    public static void testStrings(  String[] words ) {
+    public void testStrings(  String[] words ) {
         System.out.println("Last Element: " + words[words.length-1]);
         System.out.println("Contents of array: " );
         for (int i = 0; i < words.length; i++) {

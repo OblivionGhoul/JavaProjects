@@ -32,6 +32,7 @@ class CashRegisterTester_6Dinh {
     cashGiven = input.nextDouble();
     bellMarketCoinChanger.calculateChange(cashGiven);
     System.out.println(bellMarketCoinChanger.toString());
+    input.close();
   }
 }
 

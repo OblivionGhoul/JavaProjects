@@ -10,7 +10,7 @@ public class CountedTester_Dinh {
     *  Creates JOptionPane message with text from args
     */
     public static void main(String[] args) throws Exception {
-        URL imageLocation = new URL("https://horstmann.com/java4everyone/duke.gif");
+        URL imageLocation = new URL("https://code.bcp.org/anc/bellarmine-college-preparatory-logo.jpg");
         JOptionPane.showMessageDialog(null, args[0], "Welcome", JOptionPane.PLAIN_MESSAGE, new ImageIcon(imageLocation));
     }
 }

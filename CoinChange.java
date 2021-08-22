@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class CoinChange_6Dinh {
+public class CoinChange {
     public static void main(String[] args) {
         Scanner inputScanner = new Scanner(System.in);
         Register test1 = new Register();

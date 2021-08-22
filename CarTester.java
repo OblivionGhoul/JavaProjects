@@ -1,4 +1,4 @@
-public class Car_6Dinh {
+public class CarTester {
     public static void main(String[] args) {
         Car myCar = new Car();
         System.out.println(myCar);
@@ -31,6 +31,6 @@ class Car {
     }
 
     public void drive(int milesDriven) {
-        miles = miles + milesDriven;
+        miles += milesDriven;
     }
 }

@@ -1,12 +1,11 @@
 import java.util.Scanner;
 
-//Minh Dinh, LoopsA4: Bell Mkt Coin Chgr
 /**
  * Creates a scanner Creates an instance of a cash register Asks user for input
  * for price of items and amount of money given Calls cashGiven and prints
  * result
  */
-class CashRegisterTester_6Dinh {
+class CashRegisterTester {
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
     CashRegister bellMarketCoinChanger = new CashRegister(200, 200, 200, 200);

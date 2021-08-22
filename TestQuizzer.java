@@ -1,11 +1,11 @@
 import java.util.Scanner;
 /*
-Tester class
-Creates instance of Cs Quiz class
-Calls the askQuestions method
-Calls the getScore method
-*/
-class TestQuizzer_6Dinh {
+ *  Tester class
+ *  Creates instance of Cs Quiz class
+ *  Calls the askQuestions method
+ *  Calls the getScore method
+ */
+class TestQuizzer {
   public static void main(String[] args) {
     CsQuiz quiz = new CsQuiz();
     quiz.askQuestions();
@@ -14,12 +14,12 @@ class TestQuizzer_6Dinh {
 }
 
 /*
-CsQuiz class
-contains testScore instance variable
-contains the askQuestions method
-contains the displayResults method
-contains the getScore method
-*/
+ *  CsQuiz class
+ *  contains testScore instance variable
+ *  contains the askQuestions method
+ *  contains the displayResults method
+ *  contains the getScore method
+ */
 class CsQuiz {
   // score instance variable
   private int testScore = 0;

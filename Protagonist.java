@@ -1,4 +1,4 @@
-public class Protagonist_6Dinh {
+public class Protagonist {
     public static void main(String[] args) {
         Warrior gladiator = new Warrior("Minh");
         gladiator.starve();

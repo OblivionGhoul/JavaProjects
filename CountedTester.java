@@ -2,10 +2,9 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-public class CountedTester_Dinh {
+public class CountedTester {
 
     /**
-    *  @author Minh Dinh
     *  @throws Exception
     *  Creates JOptionPane message with text from args
     */
@@ -38,5 +37,9 @@ class Counted {
      */
     public Counted() {
         count++;
+    }
+
+    public int getCount() {
+        return count;
     }
 }

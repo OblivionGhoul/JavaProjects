@@ -1,14 +1,12 @@
-//Minh Dinh Array-A5: Movie Database
-
 /**
  * Creates a movie instances and prints them out
  * Inserts an age
  */
-class MovieDatabaseTester_6Dinh {
+class MovieDatabaseTester {
   public static void main(String[] args) {
-    Movie person1 = new Movie(31);
-    Movie person2 = new Movie(10);
-    Movie person3 = new Movie(21);
+    Movies person1 = new Movies(31);
+    Movies person2 = new Movies(10);
+    Movies person3 = new Movies(21);
     //best pg rated movie
     System.out.println(person1.getBestMovie());
     //best movie overall
@@ -25,7 +23,7 @@ class MovieDatabaseTester_6Dinh {
  * Creates arrays
  * Uses age to calculate which movies are best
  */
-class Movie {
+class Movies {
   String[] movies = new String[10];
   int[] movieLength = new int[10];
   double[] movieRating = new double[10];
@@ -37,7 +35,7 @@ class Movie {
   double[] pgRating = {7.3, 7.7, 8.3, 7.1, 9.4};
 
 
-  public Movie (int age) {
+  public Movies (int age) {
     if (age < 17) {
       movies = pgMovies;
       movieLength = pgLength;

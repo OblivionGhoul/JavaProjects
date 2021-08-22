@@ -1,12 +1,10 @@
-//Minh Dinh Array-A4: Movie Class
-
 /**
  * Creates an 2 instances of the class Movie
  * Paramter for movie title, genre, length, and mpaa rating in constructor
  * Rates the movie
  * Prints movie info and ratings
  */
-class MovieTester_6Dinh {
+class MovieTester {
     public static void main(String[] args) {
         Movie movie1 = new Movie("Cars 1", "Animation", 117, "G");
         movie1.Rate(7);

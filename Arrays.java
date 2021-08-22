@@ -1,14 +1,14 @@
-public class Array_6Dinh {
+public class Arrays {
     public static void main(String[] args) {
         int[] nums = {1,5,22,15,0,9};
         String[] words = { "to", "be", "not", "aardvark", "scintillating" };
-        ArrayTester_6Dinh test = new ArrayTester_6Dinh();
+        ArrayTester test = new ArrayTester();
         test.testNums(nums);
         test.testStrings(words);
     }
 }
 
-class ArrayTester_6Dinh {
+class ArrayTester {
     public void testNums(  int[] nums ) {
         System.out.println("2nd Element: " + nums[1]);
         System.out.println("Last Element: " + nums[nums.length-1]);

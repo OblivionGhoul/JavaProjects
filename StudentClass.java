@@ -1,4 +1,4 @@
-public class StudentClass__6Dinh {
+public class StudentClass {
     public static void main(String[] args) {
         // student 1
         Student freshman = new Student();

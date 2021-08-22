@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
-public class NumGuesser_6Dinh {
+public class NumGuesserTester {
     public static void main(String[] args) {
-        // Minh Dinh
         Scanner max = new Scanner(System.in);
         System.out.println("Enter the max amount for the number: ");
         int maxNum = max.nextInt();

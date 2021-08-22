@@ -1,13 +1,10 @@
-//Minh Dinh
-//Loops-A2: ASCII Chart (PP)
-
 /*
-Creates new instance 
-Calls printChart method
-*/
-class ASCIIChart_6Dinh {
+ *  Creates new instance 
+ *  Calls printChart method
+ */
+class ASCIIChart {
   public static void main(String[] args) {
-    ASCII_6Dinh ascii = new ASCII_6Dinh();
+    ASCII ascii = new ASCII();
     ascii.printChart();
   }
 }
@@ -16,7 +13,7 @@ class ASCIIChart_6Dinh {
  * Contains method printChart thats prints out an ascii table Contains 2 for
  * loops for columm and row
  */
-class ASCII_6Dinh {
+class ASCII {
   public void printChart() {
     System.out.println("--------------------------------------------");
     for (int i = 32; i <= 123; i += 5) {

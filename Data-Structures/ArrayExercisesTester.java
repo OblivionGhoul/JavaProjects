@@ -5,11 +5,11 @@ public class ArrayExercisesTester {
     public static void main(String[] args) {
         ArrayExcercises test = new ArrayExcercises();
 
-        int[] nums = {1, 2, 5, 5, 3, 1, 2, 4, 3, 2, 2, 2, 2, 3, 6, 5, 5, 6, 3, 1};
+        int[] nums = { 1, 2, 5, 5, 3, 1, 2, 4, 3, 2, 2, 2, 2, 3, 6, 5, 5, 6, 3, 1 };
 
-        //test.getRun(nums);
+        test.getRun(nums);
 
-        //test.makeCombination(nums, 3);
+        test.makeCombination(nums, 3);
 
         test.barChart(nums);
     }
@@ -17,11 +17,11 @@ public class ArrayExercisesTester {
 
 class ArrayExcercises {
     public void getRun(int[] nums) {
-        //R7.23
+        // R7.23
         int max = 1;
         int current = 1;
 
-        for (int i = 0; i < nums.length-1; i++) {
+        for (int i = 0; i < nums.length - 1; i++) {
             if (nums[i + 1] == nums[i]) {
                 current++;
                 max = Math.max(current, max);
@@ -33,7 +33,7 @@ class ArrayExcercises {
     }
 
     public void makeCombination(int[] values, int n) {
-        //R7.24
+        // R7.24
         Random generator = new Random();
         int[] numbers = new int[values.length];
         for (int i = 0; i < numbers.length; i++) {
@@ -45,19 +45,25 @@ class ArrayExcercises {
     }
 
     public void barChart(int[] nums) {
-        //E.19
-        int rows = nums[0];
-        int col = nums.length;
-
-        for (int num : nums) {
-            if (num > rows) rows = num;
+        // E.19
+        int height = nums[0];
+        for (int n : nums) {
+            if (n > height) height = n;
         }
 
-        for (int i = 0; i < col; i++) {
-            System.out.print("*");
-            for (int j = 0; j < rows; j++) {
-                System.out.println("*");
+        double scale = 20.0 / height;
+
+        int width = nums.length;
+
+        for (int row = 20; row > 0; row--) {
+            for (int col = 0; col < width; col++) {
+                if (row > (nums[col]) * scale) {
+                    System.out.print(" ");
+                } else {
+                    System.out.print("*");
+                }
             }
+            System.out.println();
         }
     }
 }

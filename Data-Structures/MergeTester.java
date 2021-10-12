@@ -35,26 +35,20 @@ public class MergeTester {
     }
 
     public static int[] merge(int[] arr1, int[] arr2) {
-        int len = arr1.length + arr2.length;
-        int[] arr = new int[len];
+        int[] arr = new int[arr1.length + arr2.length];
+        int i = 0;
+        int j = 0;
+        int k = 0;
 
-        for (int i = 0; i < arr1.length; i++) {
-            for (int j = arr1.length; j < len; j++) {
-                for (int value : arr2) {
-                    arr[i] = arr1[i];
-                    arr[j] = value;
-                }
-            }
-        }
-
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                int temp;
-                if (arr[i] > arr[j]) {
-                    temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                }
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] < arr2[j]) {
+                arr[k] = arr1[i];
+                k++;
+                i++;
+            } else {
+                arr[k] = arr2[j];
+                k++;
+                j++;
             }
         }
 

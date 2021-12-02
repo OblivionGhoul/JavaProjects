@@ -1,7 +1,3 @@
-/**
- @author Benjamin Banh
- @author Minh Dinh
- */
 public class PongGame {
     private static GameFrame frame;
 

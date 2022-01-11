@@ -39,9 +39,7 @@ class StackArray {
         if (open == item.length) {
             size *= 2;
             Object[] arr = new Object[size];
-            for (int i = 0; i < item.length; i++) {
-                arr[i] = item[i];
-            }
+            System.arraycopy(item, 0, arr, 0, item.length);
             item = arr;
         }
 
@@ -64,14 +62,14 @@ class StackArray {
 
     public String toString() {
         if (open == 0) { return "[]"; }
-        String temp = "[" + item[0];
+        StringBuilder temp = new StringBuilder("[" + item[0]);
         int i = 1;
         while (i < open)
         {
-            temp = temp + ", " + item[i];
+            temp.append(", ").append(item[i]);
             i = i + 1;
         }
-        temp = temp + "]";
-        return temp;
+        temp.append("]");
+        return temp.toString();
     }
 }

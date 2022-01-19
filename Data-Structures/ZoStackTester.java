@@ -89,8 +89,8 @@ class Stack<E> implements YoStack<E> {
  * @param <E>
  */
 interface YoStack<E> {
-    public boolean isEmpty();
-    public E push(E o);
-    public E pop();
-    public E peek();
+    boolean isEmpty();
+    E push(E o);
+    E pop();
+    E peek();
 }

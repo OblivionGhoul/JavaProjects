@@ -80,7 +80,7 @@ class Stack<E> implements YoStack<E> {
      */
     public E peek() {
         if (isEmpty()) throw new EmptyStackException();
-        return stack.getFirst();
+        return stack.getLast();
     }
 }
 

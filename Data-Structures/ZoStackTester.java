@@ -45,9 +45,11 @@ public class ZoStackTester {
  */
 class Stack<E> implements YoStack<E> {
     private final LinkedList<E> stack;
+
     public Stack() {
         stack = new LinkedList<>();
     }
+
     /**
      * Checks if the stack is empty
      * @return boolean if the stack is empty
@@ -55,15 +57,17 @@ class Stack<E> implements YoStack<E> {
     public boolean isEmpty() {
         return stack.isEmpty();
     }
+
     /**
      * Pushes to a stack
-     * @param o
+     * @param e The item to be pushed
      * @return The item pushed
      */
-    public E push(E o) {
-        stack.add(o);
-        return o;
+    public E push(E e) {
+        stack.add(e);
+        return e;
     }
+
     /**
      * Pops an item in the stack
      * @return the item removed
@@ -74,13 +78,21 @@ class Stack<E> implements YoStack<E> {
         stack.removeLast();
         return o;
     }
+
     /**
-     * Finds the first item in the stack
-     * @return the first item in the stack
+     * Finds the top item in the stack
+     * @return the top item in the stack
      */
     public E peek() {
         if (isEmpty()) throw new EmptyStackException();
         return stack.getLast();
+    }
+
+    /**
+     * @return the number of items in the stack
+     */
+    public int size() {
+        return stack.size();
     }
 }
 
@@ -93,4 +105,5 @@ interface YoStack<E> {
     E push(E o);
     E pop();
     E peek();
+    int size();
 }

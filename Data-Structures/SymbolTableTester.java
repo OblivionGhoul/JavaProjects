@@ -21,7 +21,9 @@ public class SymbolTableTester {
                     break label;
                 case "HELP":
                     System.out.println("Use \"VARS\" to view variable list, (var varName = value) to declare variables and (print value + value) to print.");
-                    System.out.println("Use quotes for strings and add correct spacing for math expressions.");
+                    System.out.println("Use quotes for strings and add one space between each value for math expressions.");
+                    System.out.println("Strings and Integers are supported.");
+                    System.out.println("EXAMPLE:\nvar a = 1\nvar b = a + 1\nprint a + b\n\nOUTPUT: 3");
                     break;
                 case "VARS":
                     codeRunner.printSymbolTable();

@@ -5,32 +5,43 @@ public class TreeUtilities {
 
     // main method for testing
     public static void main(String[] args) {
-        System.out.println("Making a tree of depth 5");
-        TreeNode t = createRandom(5);
-        TreeDisplay display = new TreeDisplay();
+//        System.out.println("Making a tree of depth 5");
+//        TreeNode t = createRandom(5);
+//        TreeDisplay display = new TreeDisplay();
+//
+//        System.out.println("Displaying the tree");
+//        display.displayTree(t);
+//
+//        System.out.println("\nThe leftmost node is " + leftmost(t));
+//        System.out.println("The rightmost node is " + rightmost(t));
+//        System.out.println("The maximum depth of the tree is " + maxDepth(t));
+//        System.out.println("Number of nodes in the tree is " + countNodes(t));
+//        System.out.println("Number of leaves in the tree is " + countLeaves(t));
+//        System.out.println("The sum of all the nodes is " + sum(t));
+//
+//        System.out.println("\nDisplaying pre-order traversal");
+//        preOrder(t, display);
+//        System.out.println("Displaying in-order traversal");
+//        inOrder(t, display);
+//        System.out.println("Displaying post-order traversal");
+//        postOrder(t, display);
+//
+//        System.out.println("\nMaking a second tree, which is a copy of tree 1");
+//        TreeNode t2 = copy(t);
+//        System.out.println("Displaying the second tree");
+//        display.displayTree(t2);
+//        System.out.println("Checking if the two trees have the same shape: " + sameShape(t, t2));
 
-        System.out.println("Displaying the tree");
-        display.displayTree(t);
+        System.out.println("Creating a decoding tree and display.");
+        TreeDisplay morseCodeDisplay = new TreeDisplay();
+        TreeNode morseCodeTree = createDecodingTree(morseCodeDisplay, false);
 
-        System.out.println("\nThe leftmost node is " + leftmost(t));
-        System.out.println("The rightmost node is " + rightmost(t));
-        System.out.println("The maximum depth of the tree is " + maxDepth(t));
-        System.out.println("Number of nodes in the tree is " + countNodes(t));
-        System.out.println("Number of leaves in the tree is " + countLeaves(t));
-        System.out.println("The sum of all the nodes is " + sum(t));
+        System.out.println("Translating \"Minh is cool\" from morse code to words (-- .. -. .... .. ... -.-. --- --- .-..):");
+        System.out.println("Morse code translation: " + decodeMorse(morseCodeTree, "-- .. -. ....", morseCodeDisplay, false));
+        System.out.println("Morse code translation: " + decodeMorse(morseCodeTree, ".. ...", morseCodeDisplay, false));
+        System.out.println("Morse code translation: " + decodeMorse(morseCodeTree, "-.-. --- --- .-..", morseCodeDisplay, false));
 
-        System.out.println("\nDisplaying pre-order traversal");
-        preOrder(t, display);
-        System.out.println("Displaying in-order traversal");
-        inOrder(t, display);
-        System.out.println("Displaying post-order traversal");
-        postOrder(t, display);
-
-        System.out.println("\nMaking a second tree, which is a copy of tree 1");
-        TreeNode t2 = copy(t);
-        System.out.println("Displaying the second tree");
-        display.displayTree(t2);
-        System.out.println("Checking if the two trees have the same shape: " + sameShape(t, t2));
+        System.out.println("Testing invalid morse code: " + decodeMorse(morseCodeTree, ".. .........", morseCodeDisplay, false));
     }
 
     //precondition:  t is non-empty
@@ -154,5 +165,100 @@ public class TreeUtilities {
         }
         return sameShape(t1.getLeft(), t2.getLeft())
                 && sameShape(t1.getRight(), t2.getRight());
+    }
+
+    //post-condition:  returns a tree for decoding Morse code
+    public static TreeNode createDecodingTree(TreeDisplay display, boolean shouldDisplay) {
+        TreeNode tree = new TreeNode("Morse Tree");
+        display.displayTree(tree);
+        insertMorse(tree, "a", ".-", display, shouldDisplay);
+        insertMorse(tree, "b", "-...", display, shouldDisplay);
+        insertMorse(tree, "c", "-.-.", display, shouldDisplay);
+        insertMorse(tree, "d", "-..", display, shouldDisplay);
+        insertMorse(tree, "e", ".", display, shouldDisplay);
+        insertMorse(tree, "f", "..-.", display, shouldDisplay);
+        insertMorse(tree, "g", "--.", display, shouldDisplay);
+        insertMorse(tree, "h", "....", display, shouldDisplay);
+        insertMorse(tree, "i", "..", display, shouldDisplay);
+        insertMorse(tree, "j", ".---", display, shouldDisplay);
+        insertMorse(tree, "k", "-.-", display, shouldDisplay);
+        insertMorse(tree, "l", ".-..", display, shouldDisplay);
+        insertMorse(tree, "m", "--", display, shouldDisplay);
+        insertMorse(tree, "n", "-.", display, shouldDisplay);
+        insertMorse(tree, "o", "---", display, shouldDisplay);
+        insertMorse(tree, "p", ".--.", display, shouldDisplay);
+        insertMorse(tree, "q", "--.-", display, shouldDisplay);
+        insertMorse(tree, "r", ".-.", display, shouldDisplay);
+        insertMorse(tree, "s", "...", display, shouldDisplay);
+        insertMorse(tree, "t", "-", display, shouldDisplay);
+        insertMorse(tree, "u", "..-", display, shouldDisplay);
+        insertMorse(tree, "v", "...-", display, shouldDisplay);
+        insertMorse(tree, "w", ".--", display, shouldDisplay);
+        insertMorse(tree, "x", "-..-", display, shouldDisplay);
+        insertMorse(tree, "y", "-.--", display, shouldDisplay);
+        insertMorse(tree, "z", "--..", display, shouldDisplay);
+        return tree;
+    }
+
+    //post-condition:  inserts the given letter into the decodingTree,
+    //                in the appropriate position, as determined by
+    //                the given Morse code sequence; lights up the display
+    //                as it walks down the tree
+    private static void insertMorse(TreeNode decodingTree, String letter,
+                                    String code, TreeDisplay display, boolean shouldDisplay) {
+        if (shouldDisplay) display.visit(decodingTree);
+
+        if (code.length() == 0) {
+            decodingTree.setValue(letter);
+        } else if(code.charAt(0) == '-') {
+            if (decodingTree.getRight() == null) {
+                decodingTree.setRight(new TreeNode(""));
+            }
+
+            insertMorse(decodingTree.getRight(), letter, code.substring(1), display, shouldDisplay);
+        } else if(code.charAt(0) == '.') {
+            if (decodingTree.getLeft() == null) {
+                decodingTree.setLeft(new TreeNode(""));
+            }
+
+            insertMorse(decodingTree.getLeft(), letter, code.substring(1), display, shouldDisplay);
+        }
+    }
+
+    //precondition:  ciphertext is Morse code, consisting of dots, dashes, and spaces
+    //post-condition: uses the given decodingTree to return the decoded message;
+    //               lights up the display as it walks down the tree
+    public static String decodeMorse(TreeNode decodingTree, String cipherText, TreeDisplay display, boolean shouldDisplay) {
+        StringBuilder res = new StringBuilder();
+        TreeNode currTree = decodingTree;
+        String invalidCode = "INVALID MORSE CODE!";
+
+        while(!cipherText.equals("")) {
+            if (shouldDisplay) display.visit(decodingTree);
+
+            if (cipherText.startsWith(" ")) {
+                if (decodingTree.getValue() != null) {
+                    res.append(decodingTree.getValue());
+                    decodingTree = currTree;
+                } else {
+                    return invalidCode;
+                }
+            } else if (cipherText.startsWith("-")) {
+                if (decodingTree.getRight() != null) {
+                    decodingTree = decodingTree.getRight();
+                } else {
+                    return invalidCode;
+                }
+            } else if (cipherText.startsWith(".")) {
+                if (decodingTree.getLeft() != null) {
+                    decodingTree = decodingTree.getLeft();
+                } else {
+                    return invalidCode;
+                }
+            }
+            cipherText = cipherText.substring(1);
+        }
+
+        return res.append(decodingTree.getValue()).toString();
     }
 }

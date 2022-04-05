@@ -1,6 +1,10 @@
 public class HeapTester {
     public static void main(String[] args) {
         Heap<Integer> heap = new Heap<>(4);
+        System.out.println("Creating Heap with max size of 4");
+        System.out.println("Inserting elements into Heap");
+        System.out.println("Inserting 65, 45, 35, 22, 41, 10, 17, 16, 14, 36, 38, 4, 6, 7");
+
         heap.insert(65);
         heap.insert(45);
         heap.insert(35);
@@ -15,6 +19,8 @@ public class HeapTester {
         heap.insert(4);
         heap.insert(6);
         heap.insert(7);
+
+        System.out.println("\nPrinting out the heap: ");
         heap.print();
     }
 }

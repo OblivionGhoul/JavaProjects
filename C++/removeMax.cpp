@@ -14,7 +14,7 @@ int main() {
     int* newArr = stripMax(arr, 10);
     cout << endl << "New Array Without Max: ";
     for (int i = 0; i < 9; i++) {
-        cout << newArr[i] << " ";
+        cout << *(newArr + i) << " ";
     }
 }
 
